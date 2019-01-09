@@ -1,5 +1,11 @@
 .App {
+  margin-top: 5px;
   text-align: center;
+}
+
+.Post {
+  width:60%;
+  margin: auto;
 }
 
 .App-logo {
