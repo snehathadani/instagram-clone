@@ -14,7 +14,7 @@ const AppHeader= (props)=> {
                 <Col xs="5" className="text-left">
                     <img src={instaLogo}/>
                 </Col>
-                <Col xs="5" className="text-right"> <SearchBar/> </Col>
+                <Col xs="5" className="text-right"> <SearchBar onSearch={props.onSearch}/> </Col>
                 
             </Row>
            

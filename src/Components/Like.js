@@ -6,8 +6,10 @@ import React from "react";
 const Like= (props)=> {
     return(
         <div style={{textAlign: 'left'}}>        
-            <FontAwesomeIcon icon={['fas', 'heart']}/>
+            <FontAwesomeIcon icon={['fas', 'heart']}
+             onClick={props.onAddLike}/>
             <FontAwesomeIcon icon={['fas', 'comment']}/>
+            {props.likes} likes
         </div>
 
     )

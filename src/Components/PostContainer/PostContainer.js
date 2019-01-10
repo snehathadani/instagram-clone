@@ -3,7 +3,7 @@ import Post from './Post';
 import './Post.css'
 const PostContainer= (props)=> {
     return(
-    <div className="posts-container-wrapper">{props.data.map(d=><Post data={d}/>)}
+    <div className="posts-container-wrapper">{props.data.map((d, i)=><Post key={i} data={d}/>)}
 
     </div>
     )

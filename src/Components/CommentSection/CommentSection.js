@@ -12,6 +12,12 @@ class CommentSection extends React.Component {
             comments:props.comments
         };
     }
+        handleAddComment= (comment) => {
+            const newComment = {username: "sneha", text: comment} 
+            const newComments = [...this.state.comments, newComment]
+            this.setState({comments: newComments})
+        }
+
     render(){
         return(
             <div>
@@ -22,7 +28,7 @@ class CommentSection extends React.Component {
                     )}
                     
                     </ListGroup>
-                    <CommentInput/>
+                    <CommentInput onAddComment={this.handleAddComment}/>
             </div>
         );
     }

@@ -5,21 +5,30 @@ import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 import CommentSection from '../CommentSection/CommentSection';
 import './Post.css';
 
-const Post= (props)=>{
+ class Post extends React.Component{
+     constructor(props){
+         super(props);
+         this.state={
+             likes:props.data.likes
+         }
+
+     }
+     render(){
     return(
         <Card>
             <CardTitle className="post-border">
-                <PostHeader thumbnailUrl={props.data.thumbnailUrl}
-                 username={props.data.username}/>
+                <PostHeader thumbnailUrl={this.props.data.thumbnailUrl}
+                 username={this.props.data.username}/>
             </CardTitle>
-            <CardBody class="post-image-wrapper">
-                <CardImg className="post-image" src={props.data.imageUrl} alt="" top />
+            <CardBody className="post-image-wrapper">
+                <CardImg className="post-image" src={this.props.data.imageUrl} alt="" top />
             </CardBody>
-            <Like/>
-            <CommentSection comments= {props.data.comments}/>
+            <Like likes={this.state.likes} onAddLike={() => this.setState({likes: this.state.likes + 1})}/>
+            <CommentSection comments= {this.props.data.comments}/>
         </Card>
-    )
+    );
 }
+ }
 
 
 export default Post;

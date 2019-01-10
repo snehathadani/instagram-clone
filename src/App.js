@@ -19,23 +19,34 @@ library.add(faHeart, faComment, faInstagram)
 
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
-      data:[]
+      data:[],
+      searchInput:''
     }
   }
   componentDidMount(){
     this.setState({data:dummyData});
   }
+  searchHandler= (searchInput)=> {
+    if (searchInput.length===0){
+      this.setState({data:dummyData});
+    }
+    else {
+      const newData= this.state.data.filter(d=> d.username===searchInput)
+      this.setState({data:newData});
+    }
+  }
+
   render() {
     
     return (
 
       <div className= "App">
-        <AppHeader/>
+        <AppHeader onSearch= {this.searchHandler}/>
         <div className="Post">
-        <PostContainer data={this.state.data}/>
+        <PostContainer data={this.state.data} />
         </div>
       </div>
     );
